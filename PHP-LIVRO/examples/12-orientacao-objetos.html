@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Orientação a Objetos</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+<h1>Orientação a Objetos</h1>
+<p>Exemplo de classe, método e herança.</p>
+<h2>Código PHP</h2>
+<pre><code>&lt;?php
+class Pessoa{ public \$nome; function __construct(\$n){ \$this->nome = \$n; } function falar(){ return 'Olá '.$this->nome; }}
+class Aluno extends Pessoa{}
+$a = new Aluno('Brenda');
+echo $a->falar();
+?&gt;</code></pre>
+<h2>Exemplo de saída</h2>
+<pre>Olá Brenda</pre>
+<a href="../index.html">Voltar ao índice</a>
+</div>
+</body>
+</html>

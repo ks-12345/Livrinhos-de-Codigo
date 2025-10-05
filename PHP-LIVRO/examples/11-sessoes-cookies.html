@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sessões e Cookies</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+<h1>Sessões e Cookies</h1>
+<p>Exemplo de uso de sessões e cookies.</p>
+<h2>Código PHP</h2>
+<pre><code>&lt;?php
+session_start();
+\$_SESSION['usuario']='Brenda';
+setcookie('teste','valor',time()+3600);
+echo 'Sessão e cookie criados';
+?&gt;</code></pre>
+<h2>Exemplo de saída</h2>
+<pre>Sessão e cookie criados</pre>
+<a href="../index.html">Voltar ao índice</a>
+</div>
+</body>
+</html>

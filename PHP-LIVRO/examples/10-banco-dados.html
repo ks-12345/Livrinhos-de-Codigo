@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Conexão com Banco de Dados (MySQLi / PDO)</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+<h1>Conexão com Banco de Dados (MySQLi / PDO)</h1>
+<p>Exemplo de conexão usando MySQLi e PDO.</p>
+<h2>Código PHP</h2>
+<pre><code>&lt;?php
+// MySQLi
+\$conn = new mysqli('localhost','root','','teste');
+if(\$conn->connect_error){ die('Erro: '.\$conn->connect_error);}
+// PDO
+try{
+ \$pdo = new PDO('mysql:host=localhost;dbname=teste','root','');
+ \$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+}catch(PDOException \$e){ echo 'Erro: '.\$e->getMessage();}
+?&gt;</code></pre>
+<h2>Exemplo de saída</h2>
+<pre>Conexão realizada com sucesso</pre>
+<a href="../index.html">Voltar ao índice</a>
+</div>
+</body>
+</html>

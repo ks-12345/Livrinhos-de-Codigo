@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tratamento de Erros</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+<h1>Tratamento de Erros</h1>
+<p>Exemplo básico de tratamento de erros em PHP.</p>
+<h2>Código PHP</h2>
+<pre><code>&lt;?php
+try{
+  throw new Exception('Um erro ocorreu');
+}catch(Exception $e){
+  echo $e->getMessage();
+}
+?&gt;</code></pre>
+<h2>Exemplo de saída</h2>
+<pre>Um erro ocorreu</pre>
+<a href="../index.html">Voltar ao índice</a>
+</div>
+</body>
+</html>

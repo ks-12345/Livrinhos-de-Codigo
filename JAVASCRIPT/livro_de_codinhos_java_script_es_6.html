@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Livro de Codinhos — JavaScript (ES6+)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+  :root{
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --accent: #0d6efd; /* bootstrap primary */
+    --code-bg: #0d1117;
+    --code-color: #e6edf3;
+    --radius: 12px;
+    --max-w: 980px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background:var(--bg);
+    color:#111827;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:28px 16px;
+  }
+  main.container{
+    max-width:var(--max-w);
+    margin:0 auto;
+  }
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  header h1{margin:0;font-size:1.05rem;display:flex;align-items:center;gap:10px}
+  .box{
+    background:var(--card);
+    padding:18px;
+    border-radius:var(--radius);
+    box-shadow:0 6px 18px rgba(15,23,42,0.06);
+    margin-bottom:16px;
+  }
+  .box h5{margin:0 0 6px 0;font-size:1rem}
+  .box p.small{margin:0 0 10px 0}
+
+  pre{
+    background:var(--code-bg);
+    color:var(--code-color);
+    padding:12px 14px;
+    border-radius:10px;
+    overflow:auto;
+    font-size:0.9rem;
+    line-height:1.45;
+    margin:0 0 10px 0;
+  }
+  code{font-family:SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace}
+
+  .tag{font-size:.82rem;padding:.14rem .45rem;border-radius:999px;background:#eef2ff;color:var(--accent)}
+
+  /* Índice */
+  ul{padding-left:1em;margin:0}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* Footer */
+  footer{opacity:0.9}
+
+  /* Responsividade */
+  @media (max-width:720px){
+    body{padding:18px 10px}
+    .box{padding:14px}
+    pre{font-size:0.85rem}
+    header h1{font-size:0.98rem}
+  }
+
+  /* Pequenas melhorias visuais */
+  .small.text-muted{color:var(--muted)}
+  .text-muted small, .text-muted{color:var(--muted)}
+  .btn-outline-primary{border-color:rgba(13,110,253,0.12)}
+
+  /* Destaque leve nos títulos */
+  section.box{border-left:4px solid rgba(13,110,253,0.06)}
+
+  /* Ajustes para listas de snippets */
+  .row ul li{margin-bottom:6px}
+</style>
+</head>
+<body>
+  <main class="container">
+    <header class="d-flex align-items-center justify-content-between mb-4">
+      <h1 class="h4">📘 Livro de Codinhos — JavaScript (ES6+)</h1>
+      <div><a class="btn btn-sm btn-outline-primary" href="#top">Índice</a></div>
+    </header>
+
+    <section class="box mb-3">
+      <h5 id="top">Índice rápido</h5>
+      <div class="row">
+        <div class="col-6 col-md-4">
+          <ul>
+            <li><a href="#basicos">Básicos</a></li>
+            <li><a href="#funcoes">Funções</a></li>
+            <li><a href="#es6">ES6+</a></li>
+            <li><a href="#dom">DOM</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <ul>
+            <li><a href="#arrays">Arrays</a></li>
+            <li><a href="#objetos">Objetos</a></li>
+            <li><a href="#async">Promises / Async</a></li>
+            <li><a href="#fetch">Fetch / API</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-4">
+          <ul>
+            <li><a href="#classes">Classes</a></li>
+            <li><a href="#debug">Debug & Tips</a></li>
+            <li><a href="#snippets">Snippets rápidos</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="box mb-3" id="basicos">
+      <h5>Básicos</h5>
+      <p class="small text-muted">Declaração, tipos e operadores</p>
+      <pre><code>// variáveis
+let idade = 30; // cria variável mutável
+const nome = 'Brenda'; // cria constante que não pode ser reatribuída
+
+// tipos
+typeof 42    // retorna 'number'
+typeof 'ok'  // retorna 'string'
+
+// operador ternário
+const maior = idade >= 18 ? 'maior' : 'menor'; // condicional curto
+</code></pre>
+      <p><strong>Explicação:</strong> Aqui mostramos como declarar variáveis com <code>let</code> e <code>const</code>, verificar tipos com <code>typeof</code> e usar o operador ternário para decisões simples.</p>
+    </section>
+
+    <section class="box mb-3" id="funcoes">
+      <h5>Funções</h5>
+      <p class="small text-muted">Declarações, expressões e arrow functions</p>
+      <pre><code>// declaração
+function soma(a, b) {
+  return a + b;
+}
+
+// expressão
+const mult = function(a, b) { return a * b };
+
+// arrow
+const inc = x => x + 1;
+
+// parâmetros padrão e rest
+function juntar(sep = '-', ...parts) {
+  return parts.join(sep);
+}
+</code></pre>
+      <p><strong>Explicação:</strong> A função <code>soma</code> é declarada no formato tradicional. Já <code>mult</code> é uma função atribuída a uma variável. <code>inc</code> é uma arrow function simplificada. Em <code>juntar</code>, usamos valor padrão (<code>sep = '-'</code>) e o operador <code>rest</code> para juntar vários argumentos.</p>
+    </section>
+
+    <section class="box mb-3" id="es6">
+      <h5>ES6+ (útil)</h5>
+      <p class="small text-muted">Destructuring, template literals, spread, modules</p>
+      <pre><code>// template literal
+const nome = 'Ana';
+console.log(`Olá, ${nome}!`);
+
+// destructuring
+const pessoa = {nome: 'João', idade: 28};
+const {nome: n, idade: i} = pessoa;
+
+// spread (arrays/objetos)
+const arr = [1,2];
+const arr2 = [...arr, 3, 4];
+const novo = {...pessoa, cidade: 'SP'};
+</code></pre>
+      <p><strong>Explicação:</strong> Template literals permitem interpolar variáveis em strings. Destructuring facilita extrair valores de objetos. O operador <code>spread</code> copia arrays e objetos facilmente, criando novos com adições.</p>
+    </section>
+
+    <section class="box mb-3" id="dom">
+      <h5>DOM</h5>
+      <p class="small text-muted">Seleção, eventos e manipulação</p>
+      <pre><code>// selecionar
+const btn = document.querySelector('#meuBtn');
+const itens = document.querySelectorAll('.item');
+
+// evento
+btn.addEventListener('click', (e) => {
+  e.preventDefault();
+  console.log('clicou!');
+});
+
+// criar elemento
+const li = document.createElement('li');
+li.textContent = 'Novo item';
+document.querySelector('ul').appendChild(li);
+</code></pre>
+      <p><strong>Explicação:</strong> Usamos <code>querySelector</code> e <code>querySelectorAll</code> para selecionar elementos. <code>addEventListener</code> adiciona eventos como cliques. Criamos um <code>li</code> dinamicamente e inserimos em uma lista.</p>
+    </section>
+
+    <section class="box mb-3" id="arrays">
+      <h5>Arrays</h5>
+      <p class="small text-muted">Map, filter, reduce, find, includes</p>
+      <pre><code>const nums = [1,2,3,4];
+
+// map
+const dobros = nums.map(n => n * 2);
+
+// filter
+const pares = nums.filter(n => n % 2 === 0);
+
+// reduce
+const soma = nums.reduce((acc, cur) => acc + cur, 0);
+
+// find/includes
+const temTres = nums.includes(3);
+const primeiroPar = nums.find(n => n % 2 === 0);
+</code></pre>
+      <p><strong>Explicação:</strong> <code>map</code> transforma cada elemento, <code>filter</code> filtra valores, <code>reduce</code> acumula em um resultado, <code>includes</code> verifica se existe um item e <code>find</code> retorna o primeiro que corresponde a uma condição.</p>
+    </section>
+
+    <section class="box mb-3" id="objetos">
+      <h5>Objetos</h5>
+      <p class="small text-muted">Chaves, valores, cópia e imutabilidade básica</p>
+      <pre><code>const obj = {a:1, b:2};
+Object.keys(obj)   // ['a','b']
+Object.values(obj) // [1,2]
+
+// cópia rasa
+const copia = {...obj};
+
+// checar propriedade
+if ('a' in obj) { /* ... */ }
+</code></pre>
+      <p><strong>Explicação:</strong> <code>Object.keys</code> retorna chaves, <code>Object.values</code> retorna valores. O spread (<code>{...obj}</code>) faz uma cópia rasa. <code>'a' in obj</code> verifica se a chave existe.</p>
+    </section>
+
+    <section class="box mb-3" id="async">
+      <h5>Promises / Async-Await</h5>
+      <p class="small text-muted">Trabalhando com operações assíncronas</p>
+      <pre><code>// Promise básica
+function esperar(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// async/await
+async function exemplo() {
+  await esperar(500);
+  console.log('500ms passados');
+}
+</code></pre>
+      <p><strong>Explicação:</strong> Criamos uma Promise que espera um tempo com <code>setTimeout</code>. Com <code>async/await</code>, escrevemos código assíncrono como se fosse síncrono.</p>
+    </section>
+
+    <section class="box mb-3" id="fetch">
+      <h5>Fetch / APIs</h5>
+      <p class="small text-muted">Chamada HTTP com fetch</p>
+      <pre><code>async function getUsers() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/users');
+  if (!res.ok) throw new Error('Erro ' + res.status);
+  const data = await res.json();
+  return data;
+}
+</code></pre>
+      <p><strong>Explicação:</strong> O <code>fetch</code> faz uma requisição HTTP. Checamos se a resposta é válida e então convertimos para JSON. Útil para buscar dados de APIs.</p>
+    </section>
+
+    <section class="box mb-3" id="classes">
+      <h5>Classes</h5>
+      <pre><code>class Pessoa {
+  constructor(nome, idade) {
+    this.nome = nome;
+    this.idade = idade;
+  }
+  falar() { console.log(`Olá, sou ${this.nome}`) }
+}
+
+const p = new Pessoa('Lia', 22);
+</code></pre>
+      <p><strong>Explicação:</strong> Usamos <code>class</code> para criar objetos com construtor e métodos. Aqui, criamos uma <code>Pessoa</code> com nome e idade, e um método <code>falar</code>.</p>
+    </section>
+
+    <section class="box mb-3" id="debug">
+      <h5>Debug & Tips</h5>
+      <ul>
+        <li>Use <code>console.log</code> com objetos: <code>console.log({variavel})</code></li>
+        <li>Breakpoint no DevTools — pausar execução e inspecionar</li>
+        <li>Evite mutation; prefira funções puras quando possível</li>
+        <li>Prefira <code>const</code> para referências que não mudam</li>
+      </ul>
+    </section>
+
+    <section class="box mb-3" id="snippets">
+      <h5>Snippets rápidos</h5>
+      <pre><code>// debounce simples
+function debounce(fn, ms=300){
+  let t;
+  return (...args) => { clearTimeout(t); t = setTimeout(()=>fn(...args), ms) };
+}
+
+// clonar profundo (rápido, não perfeito)
+const deepClone = obj => JSON.parse(JSON.stringify(obj));
+</code></pre>
+      <p><strong>Explicação:</strong> O <code>debounce</code> garante que uma função só execute após certo tempo sem ser chamada de novo. <code>deepClone</code> cria uma cópia profunda de um objeto usando JSON.</p>
+    </section>
+
+    <footer class="text-muted small mt-4">Feito pra consulta rápida — agora com explicações junto dos códigos!</footer>
+
+  </main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
